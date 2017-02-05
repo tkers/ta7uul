@@ -1,0 +1,28 @@
+{
+  "name": "ta7uul",
+  "version": "0.0.1",
+  "description": "Quickly convert transliterations to Arabic script",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack && uglifyjs ./dist/ta7uul.js -c -m -o ./dist/ta7uul.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lapixx/ta7uul.git"
+  },
+  "author": "Tijn Kersjes <tijn@divbyzero.nl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lapixx/ta7uul/issues"
+  },
+  "homepage": "https://github.com/Lapixx/ta7uul#readme",
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-latest": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "uglify-js": "^2.7.5",
+    "webpack": "^2.2.1"
+  }
+}
