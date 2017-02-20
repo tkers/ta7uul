@@ -1,0 +1,19 @@
+@media screen and (max-width: 480px) {
+  .top, .bottom {
+    padding: 2em 1.5em;
+  }
+
+  .top input {
+   font-size: 2em;
+  }
+
+  .top select {
+    font-size: 1.1em;
+    padding: 0 0.5em;
+    right: 0.5em;
+  }
+
+  .bottom span {
+    font-size: 3em;
+  }
+}
