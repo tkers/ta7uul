@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = 16);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -193,15 +193,15 @@ exports.extendAll = exports.extendPunctuation = exports.extendPunct = exports.ex
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _punct = __webpack_require__(12);
+var _punct = __webpack_require__(13);
 
 var _punct2 = _interopRequireDefault(_punct);
 
-var _numbers = __webpack_require__(11);
+var _numbers = __webpack_require__(12);
 
 var _numbers2 = _interopRequireDefault(_numbers);
 
-var _vowels = __webpack_require__(13);
+var _vowels = __webpack_require__(15);
 
 var _vowels2 = _interopRequireDefault(_vowels);
 
@@ -217,9 +217,11 @@ var extendPunct = exports.extendPunct = function extendPunct(rules) {
   return _extends({}, _punct2.default, rules);
 };
 var extendPunctuation = exports.extendPunctuation = extendPunct;
+
 var extendAll = exports.extendAll = function extendAll(rules) {
   return _extends({}, _punct2.default, _numbers2.default, _vowels2.default, rules);
 };
+
 exports.default = extendAll;
 
 /***/ }),
@@ -270,7 +272,9 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 var table = {
   e: _.hamza,
+
   A: _.alif,
+  "Al-": "" + _.alif + _.lam,
   aa: _.alif,
   b: _.ba,
   t: _.taw,
@@ -301,10 +305,14 @@ var table = {
   uu: _.waw,
   y: _.ya,
   ii: _.ya,
+
+  o: _.sukun,
+  "t'": _.marbutah, // ht
+  aaa: _.maqsurah, //at
+
+  "_": _.taweel,
   eaa: _.maddah,
-  "t'": _.marbutah,
-  aaa: _.maqsurah,
-  "_": ""
+  eo: _.waslah
 };
 
 exports.default = (0, _extendRules.extendAll)(table);
@@ -383,7 +391,7 @@ var fromTable = function fromTable(str, table) {
 
   var tra = "";
   for (var i = 0; i < str.length; i++) {
-    for (var l = 2; l >= 0; l--) {
+    for (var l = 3; l >= 0; l--) {
       if (l === 0) {
         tra += handleUnrecognized(str[i]);
         break;
@@ -440,11 +448,17 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var hamza = exports.hamza = "ء";
-var maddah = exports.maddah = "آ";
+
 var marbutah = exports.marbutah = "ة";
 var maqsurah = exports.maqsurah = "ى";
 
-exports.default = { hamza: hamza, maddah: maddah, marbutah: marbutah, maqsurah: maqsurah };
+var maddah = exports.maddah = "آ";
+var khanjariyah = exports.khanjariyah = "ٰ";
+var waslah = exports.waslah = "ٱ";
+
+var taweel = exports.taweel = "ـ";
+
+exports.default = { hamza: hamza, marbutah: marbutah, maqsurah: maqsurah, maddah: maddah, khanjariyah: khanjariyah, waslah: waslah, taweel: taweel };
 
 /***/ }),
 /* 8 */
@@ -516,21 +530,45 @@ Object.defineProperty(exports, "__esModule", {
 var fathah = exports.fathah = "َ";
 var kasrah = exports.kasrah = "ِ";
 var dammah = exports.dammah = "ُ";
-// export const maddah = "ٓ";
 var sukun = exports.sukun = "ْ";
-var khanjariyah = exports.khanjariyah = "ٰ";
-var waslah = exports.waslah = "ٱ";
 
+// Tanwin
+var fatatayn = exports.fatatayn = "ً";
+var kasratayn = exports.kasratayn = "ٍ";
+var dammatayn = exports.dammatayn = "ٌ";
+
+// Shaddah
 var shaddah = exports.shaddah = "ّ";
 
-var tanwinf = exports.tanwinf = "ً";
-var tanwink = exports.tanwink = "ٍ";
-var tanwind = exports.tanwind = "ٌ";
+// aliasses
+var tashdid = exports.tashdid = shaddah;
+var fatahN = exports.fatahN = fatatayn;
+var kasrahN = exports.kasrahN = kasratayn;
+var dammahN = exports.dammahN = dammatayn;
 
-exports.default = { fathah: fathah, kasrah: kasrah, dammah: dammah, sukun: sukun, khanjariyah: khanjariyah, waslah: waslah, shaddah: shaddah, tanwinf: tanwinf, tanwink: tanwink, tanwind: tanwind };
+exports.default = { fathah: fathah, kasrah: kasrah, dammah: dammah, sukun: sukun, shaddah: shaddah, tashdid: tashdid, fatatayn: fatatayn, kasratayn: kasratayn, dammatayn: dammatayn, fatahN: fatahN, kasrahN: kasrahN, dammahN: dammahN };
 
 /***/ }),
 /* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _alphabet = __webpack_require__(0);
+
+exports.default = {
+  a: _alphabet.tashkil.fathah,
+  i: _alphabet.tashkil.kasrah,
+  u: _alphabet.tashkil.dammah
+};
+
+/***/ }),
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -556,7 +594,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -574,7 +612,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -587,13 +625,38 @@ Object.defineProperty(exports, "__esModule", {
 var _alphabet = __webpack_require__(0);
 
 exports.default = {
-  a: _alphabet.tashkil.fathah,
-  i: _alphabet.tashkil.kasrah,
-  u: _alphabet.tashkil.dammah
+  aN: _alphabet.tashkil.fatatayn,
+  iN: _alphabet.tashkil.kasratayn,
+  uN: _alphabet.tashkil.dammatayn
 };
 
 /***/ }),
-/* 14 */
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _harakat = __webpack_require__(11);
+
+var _harakat2 = _interopRequireDefault(_harakat);
+
+var _tanwin = __webpack_require__(14);
+
+var _tanwin2 = _interopRequireDefault(_tanwin);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _extends({}, _harakat2.default, _tanwin2.default);
+
+/***/ }),
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
