@@ -30,6 +30,14 @@ function listRules() {
   });
 }
 
+function checkEnter(ev) {
+  if (ev.keyCode !== 13)
+    return;
+
+  ev.preventDefault();
+  eng.blur();
+}
+
 window.onload = function () {
 
   eng = document.getElementById("eng");
@@ -39,6 +47,8 @@ window.onload = function () {
   listRules();
 
   eng.oninput = update;
+  eng.addEventListener("keyup", checkEnter);
   rule.onchange = updateRule;
+
   eng.focus();
 };
