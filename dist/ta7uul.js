@@ -189,33 +189,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.keep = exports.leaveEmpty = exports.showQuestionMark = exports.showReplacementChar = undefined;
-
-var _alphabet = __webpack_require__(0);
-
-var showReplacementChar = exports.showReplacementChar = function showReplacementChar() {
-  return "�";
-};
-var showQuestionMark = exports.showQuestionMark = function showQuestionMark() {
-  return _alphabet.question;
-};
-var leaveEmpty = exports.leaveEmpty = function leaveEmpty() {
-  return " ";
-};
-var keep = exports.keep = function keep(x) {
-  return x;
-};
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 exports.extendAll = exports.extendPunctuation = exports.extendPunct = exports.extendNumbers = exports.extendVowels = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -250,6 +223,33 @@ var extendAll = exports.extendAll = function extendAll(rules) {
 exports.default = extendAll;
 
 /***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.keep = exports.leaveEmpty = exports.showQuestionMark = exports.showReplacementChar = undefined;
+
+var _alphabet = __webpack_require__(0);
+
+var showReplacementChar = exports.showReplacementChar = function showReplacementChar() {
+  return "�";
+};
+var showQuestionMark = exports.showQuestionMark = function showQuestionMark() {
+  return _alphabet.question;
+};
+var leaveEmpty = exports.leaveEmpty = function leaveEmpty() {
+  return " ";
+};
+var keep = exports.keep = function keep(x) {
+  return x;
+};
+
+/***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -262,40 +262,49 @@ Object.defineProperty(exports, "__esModule", {
 
 var _alphabet = __webpack_require__(0);
 
-var _extendRules = __webpack_require__(2);
+var _ = _interopRequireWildcard(_alphabet);
+
+var _extendRules = __webpack_require__(1);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 var table = {
-  A: _alphabet.letters.alif,
-  aa: _alphabet.letters.alif,
-  b: _alphabet.letters.ba,
-  t: _alphabet.letters.taw,
-  c: _alphabet.letters.ta,
-  j: _alphabet.letters.jim,
-  H: _alphabet.letters.het,
-  K: _alphabet.letters.kha,
-  d: _alphabet.letters.dal,
-  "z'": _alphabet.letters.dhal,
-  r: _alphabet.letters.ra,
-  z: _alphabet.letters.zayn,
-  s: _alphabet.letters.sin,
-  x: _alphabet.letters.shin,
-  S: _alphabet.letters.sad,
-  D: _alphabet.letters.dad,
-  T: _alphabet.letters.tha,
-  Z: _alphabet.letters.za,
-  E: _alphabet.letters.ayn,
-  g: _alphabet.letters.ghayn,
-  f: _alphabet.letters.fa,
-  q: _alphabet.letters.qaf,
-  k: _alphabet.letters.kaf,
-  l: _alphabet.letters.lam,
-  m: _alphabet.letters.mim,
-  n: _alphabet.letters.nun,
-  h: _alphabet.letters.ha,
-  w: _alphabet.letters.waw,
-  uu: _alphabet.letters.waw,
-  y: _alphabet.letters.ya,
-  ii: _alphabet.letters.ya
+  e: _.hamza,
+  A: _.alif,
+  aa: _.alif,
+  b: _.ba,
+  t: _.taw,
+  c: _.ta,
+  j: _.jim,
+  H: _.het,
+  K: _.kha,
+  d: _.dal,
+  "z'": _.dhal,
+  r: _.ra,
+  z: _.zayn,
+  s: _.sin,
+  x: _.shin,
+  S: _.sad,
+  D: _.dad,
+  T: _.tha,
+  Z: _.za,
+  E: _.ayn,
+  g: _.ghayn,
+  f: _.fa,
+  q: _.qaf,
+  k: _.kaf,
+  l: _.lam,
+  m: _.mim,
+  n: _.nun,
+  h: _.ha,
+  w: _.waw,
+  uu: _.waw,
+  y: _.ya,
+  ii: _.ya,
+  eaa: _.maddah,
+  "t'": _.marbutah,
+  aaa: _.maqsurah,
+  "_": ""
 };
 
 exports.default = (0, _extendRules.extendAll)(table);
@@ -310,37 +319,50 @@ exports.default = (0, _extendRules.extendAll)(table);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.table = exports.unknown = undefined;
 
-var _table;
+var _extendPunctuation;
+
+var _handleUnrecognized = __webpack_require__(2);
+
+Object.defineProperty(exports, "unknown", {
+  enumerable: true,
+  get: function get() {
+    return _handleUnrecognized.keep;
+  }
+});
 
 var _alphabet = __webpack_require__(0);
 
-var _extendRules = __webpack_require__(2);
+var _ = _interopRequireWildcard(_alphabet);
+
+var _extendRules = __webpack_require__(1);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var table = (_table = {
-  a: _alphabet.letters.alif,
-  e: _alphabet.letters.alif,
-  b: _alphabet.letters.ba,
-  p: _alphabet.letters.ba,
-  t: _alphabet.letters.taw,
-  s: _alphabet.letters.ta,
-  th: _alphabet.letters.ta,
-  j: _alphabet.letters.jim,
-  dj: _alphabet.letters.jim,
-  g: _alphabet.letters.jim,
-  7: _alphabet.letters.het,
-  kh: _alphabet.letters.kha,
-  5: _alphabet.letters.kha,
-  "7'": _alphabet.letters.kha,
-  d: _alphabet.letters.dal,
-  z: _alphabet.letters.dhal,
-  dh: _alphabet.letters.dhal,
-  r: _alphabet.letters.ra
-}, _defineProperty(_table, "z", _alphabet.letters.zayn), _defineProperty(_table, "s", _alphabet.letters.sin), _defineProperty(_table, "sh", _alphabet.letters.shin), _defineProperty(_table, "ch", _alphabet.letters.shin), _defineProperty(_table, "S", _alphabet.letters.sad), _defineProperty(_table, 9, _alphabet.letters.sad), _defineProperty(_table, "D", _alphabet.letters.dad), _defineProperty(_table, "9'", _alphabet.letters.dad), _defineProperty(_table, "T", _alphabet.letters.tha), _defineProperty(_table, 6, _alphabet.letters.tha), _defineProperty(_table, "Z", _alphabet.letters.za), _defineProperty(_table, "6'", _alphabet.letters.za), _defineProperty(_table, 3, _alphabet.letters.ayn), _defineProperty(_table, "gh", _alphabet.letters.ghayn), _defineProperty(_table, "3'", _alphabet.letters.ghayn), _defineProperty(_table, "f", _alphabet.letters.fa), _defineProperty(_table, "v", _alphabet.letters.fa), _defineProperty(_table, 2, _alphabet.letters.qaf), _defineProperty(_table, "q", _alphabet.letters.qaf), _defineProperty(_table, 8, _alphabet.letters.qaf), _defineProperty(_table, "k", _alphabet.letters.kaf), _defineProperty(_table, "l", _alphabet.letters.lam), _defineProperty(_table, "m", _alphabet.letters.mim), _defineProperty(_table, "n", _alphabet.letters.nun), _defineProperty(_table, "h", _alphabet.letters.ha), _defineProperty(_table, "w", _alphabet.letters.waw), _defineProperty(_table, "o", _alphabet.letters.waw), _defineProperty(_table, "ou", _alphabet.letters.waw), _defineProperty(_table, "oo", _alphabet.letters.waw), _defineProperty(_table, "u", _alphabet.letters.waw), _defineProperty(_table, "y", _alphabet.letters.ya), _defineProperty(_table, "i", _alphabet.letters.ya), _defineProperty(_table, "ee", _alphabet.letters.ya), _table);
-
-exports.default = (0, _extendRules.extendPunctuation)(table);
+var table = exports.table = (0, _extendRules.extendPunctuation)((_extendPunctuation = {
+  2: _.hamza,
+  a: _.alif,
+  e: _.alif,
+  b: _.ba,
+  p: _.ba,
+  t: _.taw,
+  s: _.ta,
+  th: _.ta,
+  j: _.jim,
+  dj: _.jim,
+  g: _.jim,
+  7: _.het,
+  kh: _.kha,
+  5: _.kha,
+  "7'": _.kha,
+  d: _.dal,
+  z: _.dhal,
+  dh: _.dhal,
+  r: _.ra
+}, _defineProperty(_extendPunctuation, "z", _.zayn), _defineProperty(_extendPunctuation, "s", _.sin), _defineProperty(_extendPunctuation, "sh", _.shin), _defineProperty(_extendPunctuation, "ch", _.shin), _defineProperty(_extendPunctuation, "S", _.sad), _defineProperty(_extendPunctuation, 9, _.sad), _defineProperty(_extendPunctuation, "D", _.dad), _defineProperty(_extendPunctuation, "9'", _.dad), _defineProperty(_extendPunctuation, "T", _.tha), _defineProperty(_extendPunctuation, 6, _.tha), _defineProperty(_extendPunctuation, "Z", _.za), _defineProperty(_extendPunctuation, "6'", _.za), _defineProperty(_extendPunctuation, 3, _.ayn), _defineProperty(_extendPunctuation, "gh", _.ghayn), _defineProperty(_extendPunctuation, "3'", _.ghayn), _defineProperty(_extendPunctuation, "f", _.fa), _defineProperty(_extendPunctuation, "v", _.fa), _defineProperty(_extendPunctuation, "q", _.qaf), _defineProperty(_extendPunctuation, 8, _.qaf), _defineProperty(_extendPunctuation, "k", _.kaf), _defineProperty(_extendPunctuation, "l", _.lam), _defineProperty(_extendPunctuation, "m", _.mim), _defineProperty(_extendPunctuation, "n", _.nun), _defineProperty(_extendPunctuation, "h", _.ha), _defineProperty(_extendPunctuation, "w", _.waw), _defineProperty(_extendPunctuation, "o", _.waw), _defineProperty(_extendPunctuation, "ou", _.waw), _defineProperty(_extendPunctuation, "oo", _.waw), _defineProperty(_extendPunctuation, "u", _.waw), _defineProperty(_extendPunctuation, "y", _.ya), _defineProperty(_extendPunctuation, "i", _.ya), _defineProperty(_extendPunctuation, "ee", _.ya), _defineProperty(_extendPunctuation, "2a", _.maddah), _defineProperty(_extendPunctuation, "at", _.marbutah), _defineProperty(_extendPunctuation, "et", _.marbutah), _defineProperty(_extendPunctuation, "A", _.maqsurah), _defineProperty(_extendPunctuation, "_", ""), _extendPunctuation));
 
 /***/ }),
 /* 5 */
@@ -353,9 +375,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _handleUnrecognized = __webpack_require__(1);
+var _handleUnrecognized = __webpack_require__(2);
 
-var fromTable = function fromTable(str, table, handleUnrecognized) {
+var fromTable = function fromTable(str, table) {
+  var handleUnrecognized = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : _handleUnrecognized.showReplacementChar;
+
 
   var tra = "";
   for (var i = 0; i < str.length; i++) {
@@ -375,11 +399,11 @@ var fromTable = function fromTable(str, table, handleUnrecognized) {
   return tra;
 };
 
-exports.default = function (str, rules) {
-  var handleUnrecognized = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : _handleUnrecognized.showReplacementChar;
+exports.default = function (str, ruleSet, handleUnrecognized) {
 
+  var rules = ruleSet.default || ruleSet;
 
-  if (rules instanceof Function) return rules(str, handleUnrecognized);else return fromTable(str, rules, handleUnrecognized);
+  if (rules instanceof Function) return rules(str, handleUnrecognized);else return fromTable(str, rules.table || rules, handleUnrecognized || rules.unknown);
 };
 
 /***/ }),
@@ -578,7 +602,7 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.fallback = exports.rules = exports.alphabet = exports.trans = exports.transliterate = undefined;
+exports.rules = exports.alphabet = exports.trans = exports.transliterate = undefined;
 
 var _alphabet = __webpack_require__(0);
 
@@ -588,30 +612,25 @@ var _transliterate = __webpack_require__(5);
 
 var _transliterate2 = _interopRequireDefault(_transliterate);
 
-var _handleUnrecognized = __webpack_require__(1);
-
-var fallback = _interopRequireWildcard(_handleUnrecognized);
-
 var _BATR = __webpack_require__(3);
 
-var _BATR2 = _interopRequireDefault(_BATR);
+var BATR = _interopRequireWildcard(_BATR);
 
 var _chat = __webpack_require__(4);
 
-var _chat2 = _interopRequireDefault(_chat);
+var chat = _interopRequireWildcard(_chat);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 var trans = _transliterate2.default;
-var rules = { BATR: _BATR2.default, chat: _chat2.default };
+var rules = { BATR: BATR, chat: chat };
 
 exports.transliterate = _transliterate2.default;
 exports.trans = trans;
 exports.alphabet = alphabet;
 exports.rules = rules;
-exports.fallback = fallback;
 
 /***/ })
 /******/ ]);
