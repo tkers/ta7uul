@@ -36,6 +36,17 @@ function checkEnter(ev) {
 
   ev.preventDefault();
   eng.blur();
+
+  selectOutput();
+}
+
+function selectOutput() {
+  var range = document.createRange();
+  range.selectNodeContents(ara);
+
+  var sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
 }
 
 window.onload = function () {
@@ -49,6 +60,7 @@ window.onload = function () {
   eng.oninput = update;
   eng.addEventListener("keyup", checkEnter);
   rule.onchange = updateRule;
+  ara.onclick = selectOutput;
 
   eng.focus();
 };
