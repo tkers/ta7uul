@@ -1,6 +1,8 @@
-var rule, eng, ara;
+var rule, eng, ara, araph;
 
 function update() {
+
+  araph.style.display = (eng.value.length > 0) ? "none" : "inline";
 
   var ruleSet = ta7uul.rules[rule.value];
   var result = ta7uul.trans(eng.value, ruleSet);
@@ -54,6 +56,7 @@ window.onload = function () {
   eng = document.getElementById("eng");
   rule = document.getElementById("rule");
   ara = document.getElementById("ara");
+  araph = document.getElementById("araPlaceholder");
 
   listRules();
 

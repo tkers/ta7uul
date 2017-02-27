@@ -82,3 +82,7 @@ html, body {
   font-size: 5em;
   transition: opacity 150ms ease-in-out;
 }
+
+.bottom span#araPlaceholder {
+  color: #D2E6D8; /* 0.2 * 44AA66 + 0.8 * F5F5F5 */
+}
