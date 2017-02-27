@@ -4,6 +4,7 @@
 html, body {
   padding: 0;
   margin: 0;
+  background-color: #EBE7E2;
 }
 
 .top, .bottom {
@@ -54,7 +55,7 @@ html, body {
 }
 
 .top select {
-  border: 2px solid #FAFAFA;
+  border: 2px solid #EBE7E2;
   background-color: #44AA66;
   color: rgba(255, 255, 255, 0.9);
   font-size: 1.5em;
@@ -72,7 +73,6 @@ html, body {
 
 .bottom {
   padding-top: 3em;
-  background-color: #F5F5F5;
   color: #44AA66;
   direction: rtl;
 }
@@ -84,5 +84,5 @@ html, body {
 }
 
 .bottom span#araPlaceholder {
-  color: #D2E6D8; /* 0.2 * 44AA66 + 0.8 * F5F5F5 */
+  color: #CADBC9; /* 0.2 * 44AA66 + 0.8 * EBE7E2 */
 }
