@@ -3,7 +3,7 @@
     padding: 2em 1.5em;
   }
 
-  .top input {
+  .top input[type="text"] {
    font-size: 2em;
   }
 
